@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(currentPos.x + speed, currentPos.y, currentPos.z);
         }
+        Camera.main.transform.GetComponent<CameraControl>().FollowThePlayer(transform.position.x);
     }
     void HandleWeaponRotation()
     {

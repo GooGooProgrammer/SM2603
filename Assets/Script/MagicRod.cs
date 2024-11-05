@@ -10,10 +10,12 @@ public class MagicRod : MonoBehaviour
     private LayerMask bulletBlocker;
     
     [SerializeField]
-    private float speed;
-
+    private float bulletSpeed;
+    [SerializeField]
+    private float attackSpeed;
     [SerializeField]
     private int damage;
+    private bool onCoolDown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,22 @@ public class MagicRod : MonoBehaviour
     }
     void Fire()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && onCoolDown == false)
         {
             GameObject Bullet = Instantiate(BulletPrefab,transform.position,transform.rotation);
-            Bullet.GetComponent<Bullet>().speed = speed;
+            Bullet.GetComponent<Bullet>().speed = bulletSpeed;
             Bullet.GetComponent<Bullet>().bulletBlocker = bulletBlocker;
             Bullet.GetComponent<Bullet>().damage = damage;
+            onCoolDown = true;
+            StartCoroutine(CoolDownCalculate());
         }
     }
+
+    IEnumerator CoolDownCalculate()
+    {
+        // a cool down animation should be calculated
+        yield return new WaitForSeconds(attackSpeed);
+        onCoolDown = false;
+    }
+    
 }
