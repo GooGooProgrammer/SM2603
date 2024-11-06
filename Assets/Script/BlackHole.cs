@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BlackHole : MonoBehaviour
+public class BlackHole : Spell
 {
-    void OnCollisionStay2D(Collision2D col)
+    protected override void Effect()
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        foreach (Transform enemy in EnemyList)
         {
-            col.transform.position = transform.position;
+            if (enemy)
+                enemy.position = transform.position;
         }
     }
 }

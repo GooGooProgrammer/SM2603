@@ -3,38 +3,44 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Spell : MonoBehaviour
+public abstract class Spell : MonoBehaviour
 {
     [SerializeField]
-    float spellCD;
+    protected float spellCD;
 
     [SerializeField]
-    GameObject TheSpell;
+    protected int checkFrequency;
 
     [SerializeField]
-    int checkFrequency;
+    protected float duration;
 
     [SerializeField]
-    float duration;
+    protected int damage;
 
-    GameObject SpellArea;
-    GameObject CastingSpell;
-    bool onCoolDown = false;
+    protected bool onCoolDown = false;
+    protected Collider2D col;
+    protected SpriteRenderer spriteRenderer;
+    protected List<Transform> EnemyList = new List<Transform>();
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update'
+    private void Awake()
+    {
+        col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         SpellAreaFollowMouse();
     }
 
-    public void CastSpell()
+    public virtual void CastSpell()
     {
         if (onCoolDown)
             return;
-        if (!SpellArea)
+        if (!spriteRenderer.enabled)
             return;
-        CastingSpell = Instantiate(TheSpell, SpellArea.transform.position, Quaternion.identity);
-        Destroy(SpellArea);
+        //CastingSpell = Instantiate(TheSpell, SpellArea.transform.position, Quaternion.identity);
         onCoolDown = true;
         StartCoroutine(CoolDownCalculate());
         StartCoroutine(Casting());
@@ -44,39 +50,54 @@ public class Spell : MonoBehaviour
     {
         if (onCoolDown)
             return;
-        if (SpellArea)
-            return;
-        SpellArea = Instantiate(TheSpell);
-        SpellArea.GetComponent<Collider2D>().enabled = false;
+        spriteRenderer.enabled = true;
     }
 
     public void CancelCast()
     {
-        if (SpellArea)
-            Destroy(SpellArea);
+        if (col.enabled)
+            return;
+        spriteRenderer.enabled = false;
     }
 
-    void SpellAreaFollowMouse()
+    protected virtual void SpellAreaFollowMouse()
     {
-        if (!SpellArea)
+        if (col.enabled)
             return;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        SpellArea.transform.position = mousePos;
+        transform.position = mousePos;
     }
 
-    IEnumerator CoolDownCalculate()
+    protected IEnumerator CoolDownCalculate()
     {
         // a cool down animation should be calculated
         yield return new WaitForSeconds(spellCD);
         onCoolDown = false;
     }
 
-    IEnumerator Casting()
+    protected IEnumerator Casting()
     {
+        spriteRenderer.enabled = true;
+        col.enabled = true;
+        yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < checkFrequency; i++)
         {
+            Debug.Log(EnemyList.Count);
+            Effect();
             yield return new WaitForSeconds(duration / checkFrequency);
         }
-        Destroy(CastingSpell);
+        spriteRenderer.enabled = false;
+        col.enabled = false;
+        EnemyList = new List<Transform>();
+    }
+
+    protected abstract void Effect();
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        IDamageble iDamageable = col.gameObject.GetComponent<IDamageble>();
+        if (iDamageable == null)
+            return;
+        EnemyList.Add(col.transform);
     }
 }

@@ -14,17 +14,29 @@ public class SpellControl : MonoBehaviour
 
     void CastSpell()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             transform.GetChild(0).GetComponent<Spell>().CastSpell();
+            CancelSpell();
             transform.GetChild(0).GetComponent<Spell>().PreCast();
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            transform.GetChild(1).GetComponent<Spell>().CastSpell();
+            CancelSpell();
+            transform.GetChild(1).GetComponent<Spell>().PreCast();
         }
         if (Input.GetMouseButtonDown(1))
         {
-            foreach (Transform spell in transform)
-            {
-                spell.GetComponent<Spell>().CancelCast();
-            }
+            CancelSpell();
+        }
+    }
+
+    void CancelSpell()
+    {
+        foreach (Transform spell in transform)
+        {
+            spell.GetComponent<Spell>().CancelCast();
         }
     }
 }
