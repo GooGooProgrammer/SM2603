@@ -6,11 +6,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject weapon;
-
-    private Vector2 direction;
     [SerializeField]
     float speed;
+
     // Start is called before the first frame update\
     void Start() { }
 
@@ -18,7 +16,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        HandleWeaponRotation();
     }
 
     void Move()
@@ -28,16 +25,10 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(currentPos.x - speed, currentPos.y, currentPos.z);
         }
-        else if (Input.GetKey(KeyCode.D))         
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.position = new Vector3(currentPos.x + speed, currentPos.y, currentPos.z);
         }
         Camera.main.transform.GetComponent<CameraControl>().FollowThePlayer(transform.position.x);
-    }
-    void HandleWeaponRotation()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = (mousePos-(Vector2)weapon.transform.position).normalized;
-        weapon.transform.right = direction; 
     }
 }

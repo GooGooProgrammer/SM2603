@@ -46,10 +46,10 @@ public class EnemyControl : MonoBehaviour
         currentTime++;
     }
 
-    void ClearEnemy(EnemyListObject e) 
-    { 
+    void ClearEnemy(EnemyListObject e)
+    {
         e.timeSpawn--;
-        if(e.timeSpawn <= 0)
+        if (e.timeSpawn <= 0)
         {
             waveList[currentWave].enemyList.Remove(e);
         }
@@ -60,7 +60,7 @@ public class EnemyControl : MonoBehaviour
         for (int i = 0; i < e.numEnemy; i++)
         {
             Instantiate(e.enemy, transform);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         ClearEnemy(e);
     }
