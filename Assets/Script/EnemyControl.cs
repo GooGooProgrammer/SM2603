@@ -57,9 +57,11 @@ public class EnemyControl : MonoBehaviour
 
     IEnumerator SpawnEnemy(EnemyListObject e)
     {
+        
         for (int i = 0; i < e.numEnemy; i++)
         {
-            Instantiate(e.enemy, transform);
+            float randomY = UnityEngine.Random.Range(0, Camera.main.orthographicSize / 2);
+            Instantiate(e.enemy, transform.position + new Vector3(0, randomY , 0),Quaternion.identity);
             yield return new WaitForSeconds(1.5f);
         }
         ClearEnemy(e);

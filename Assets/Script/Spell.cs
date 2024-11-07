@@ -16,6 +16,8 @@ public abstract class Spell : MonoBehaviour
 
     [SerializeField]
     protected int damage;
+    [SerializeField]
+    protected SpellCoolDown spellCoolDown;
 
     protected bool onCoolDown = false;
     protected Collider2D col;
@@ -71,7 +73,12 @@ public abstract class Spell : MonoBehaviour
     protected IEnumerator CoolDownCalculate()
     {
         // a cool down animation should be calculated
-        yield return new WaitForSeconds(spellCD);
+        for(int i = 0;i <= 360;i++)
+        {
+            spellCoolDown.UpdateCoolDown(i);
+            yield return new WaitForSeconds(spellCD / 360);
+        }
+      
         onCoolDown = false;
     }
 

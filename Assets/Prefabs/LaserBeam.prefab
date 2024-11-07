@@ -149,4 +149,5 @@ MonoBehaviour:
   spellCD: 8
   checkFrequency: 1
   duration: 0.5
-  damage: 4
+  damage: 6
+  spellCoolDown: {fileID: 0}

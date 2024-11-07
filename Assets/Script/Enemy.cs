@@ -13,6 +13,13 @@ public class Enemy : MonoBehaviour, IDamageble
     [SerializeField]
     float speed;
 
+    [SerializeField]
+    private int power;
+
+    public int GetPower()
+    {
+        return power;
+    }
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -20,7 +27,8 @@ public class Enemy : MonoBehaviour, IDamageble
 
     void Update()
     {
-        transform.position += new Vector3(speed, 0);
+        transform.position += new Vector3(speed* Time.deltaTime, 0);
+        GetComponent<SpriteRenderer>().material = GetComponent<SpriteRenderer>().material;
     }
 
     public void Damage(int damage)
