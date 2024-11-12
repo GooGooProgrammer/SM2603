@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 50dcb7506eb3ad54281554f5be495e46
+guid: cb2aa949c98ef7b4d986659a9d068db2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6186267837839086139
-    second: BlackHoleIcon_0
+      213: -2827428244536450488
+    second: portal_front_0
+  - first:
+      213: 8052761035200874640
+    second: portal_front_1
+  - first:
+      213: -2294623443284302709
+    second: portal_front_2
+  - first:
+      213: -1622742600850076534
+    second: portal_front_3
+  - first:
+      213: -3202945503451628900
+    second: portal_front_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,69 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlackHoleIcon_0
+      name: portal_front_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 416
-        height: 416
+        x: 30
+        y: 241
+        width: 10
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +126,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3292df72d90ad550800000000000000
-      internalID: 6186267837839086139
+      spriteID: 842af70fdf4f2c8d0800000000000000
+      internalID: -2827428244536450488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_front_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 22
+        width: 328
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09841440f7721cf60800000000000000
+      internalID: 8052761035200874640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_front_2
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 19
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8461c1c22cd720e0800000000000000
+      internalID: -2294623443284302709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_front_3
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 22
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c0072c33cda79e0800000000000000
+      internalID: -1622742600850076534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_front_4
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 12
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ab4d7d80adc83d0800000000000000
+      internalID: -3202945503451628900
       vertices: []
       indices: 
       edges: []
@@ -183,7 +227,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BlackHoleIcon_0: 6186267837839086139
+      portal_front_0: -2827428244536450488
+      portal_front_1: 8052761035200874640
+      portal_front_2: -2294623443284302709
+      portal_front_3: -1622742600850076534
+      portal_front_4: -3202945503451628900
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

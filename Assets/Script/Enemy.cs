@@ -16,6 +16,12 @@ public class Enemy : MonoBehaviour, IDamageble
     [SerializeField]
     private int power;
 
+    [SerializeField]
+    private int id;
+    public int GetId()
+    {
+        return id;
+    }
     public int GetPower()
     {
         return power;
@@ -42,6 +48,7 @@ public class Enemy : MonoBehaviour, IDamageble
     {
         if (hp <= 0)
         {
+            EnemySetControl.Instance.EnemyNumberDecreaseOne(id);
             Destroy(gameObject);
         }
     }

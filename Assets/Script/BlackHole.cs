@@ -10,7 +10,9 @@ public class BlackHole : Spell
         foreach (Transform enemy in EnemyList)
         {
             if (enemy)
-                enemy.position = transform.position;
+            {
+                enemy.position = transform.position;       
+            }
         }
     }
 }

@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f9fd29741b2344e88453845e3b27ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellCD: 8
+  spellCD: 5
   checkFrequency: 1
   duration: 0.5
-  damage: 6
+  damage: 4
   spellCoolDown: {fileID: 0}

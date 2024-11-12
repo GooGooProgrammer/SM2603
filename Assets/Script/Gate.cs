@@ -27,6 +27,7 @@ public class Gate : MonoBehaviour
             int damage = collision.transform.GetComponent<Enemy>().GetPower();
             gateHp = gateHp - damage;
             gateHealth.localScale -= new Vector3((float)damage / 2, 0, 0);
+            EnemySetControl.Instance.EnemyNumberDecreaseOne(collision.gameObject.GetComponent<Enemy>().GetId());
             Destroy(collision.gameObject);
         }
     }
