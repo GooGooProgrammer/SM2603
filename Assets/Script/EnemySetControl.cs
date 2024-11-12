@@ -66,10 +66,7 @@ public class EnemySetControl : MonoBehaviour
                 g.GetComponent<EnemySet>().count.text = count.ToString();
             }
         }
-        if(CheckEnemyAllDead())
-        {
-            
-        }
+        if (CheckEnemyAllDead()) { }
     }
 
     bool CheckEnemyAllDead()
