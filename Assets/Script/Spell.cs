@@ -16,6 +16,7 @@ public abstract class Spell : MonoBehaviour
 
     [SerializeField]
     protected int damage;
+
     [SerializeField]
     protected SpellCoolDown spellCoolDown;
 
@@ -73,12 +74,12 @@ public abstract class Spell : MonoBehaviour
     protected IEnumerator CoolDownCalculate()
     {
         // a cool down animation should be calculated
-        for(int i = 0;i <= 360;i++)
+        for (int i = 0; i <= 360; i++)
         {
             spellCoolDown.UpdateCoolDown(i);
             yield return new WaitForSeconds(spellCD / 360);
         }
-      
+
         onCoolDown = false;
     }
 
@@ -93,12 +94,22 @@ public abstract class Spell : MonoBehaviour
             Effect();
             yield return new WaitForSeconds(duration / checkFrequency);
         }
+        EndCasting();
         spriteRenderer.enabled = false;
         col.enabled = false;
         EnemyList = new List<Transform>();
     }
 
-    protected abstract void Effect();
+    protected virtual void EndCasting() { }
+
+    protected virtual void Effect()
+    {
+        foreach (Transform enemy in EnemyList)
+        {
+            if (enemy)
+                enemy.GetComponent<IDamageble>().Damage(damage);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {

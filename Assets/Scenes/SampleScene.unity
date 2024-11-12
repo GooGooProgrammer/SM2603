@@ -1235,9 +1235,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1867769156}
     m_Modifications:
     - target: {fileID: 1748826972364550824, guid: 96b44065b65669b46945d00c0d46c141, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748826972364550824, guid: 96b44065b65669b46945d00c0d46c141, type: 3}
       propertyPath: spellCoolDown
       value: 
       objectReference: {fileID: 1370753658}
+    - target: {fileID: 1748826972364550824, guid: 96b44065b65669b46945d00c0d46c141, type: 3}
+      propertyPath: checkFrequency
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3224240961619046129, guid: 96b44065b65669b46945d00c0d46c141, type: 3}
       propertyPath: m_Name
       value: BlackHole
@@ -2077,6 +2085,15 @@ MonoBehaviour:
       numEnemy: 1
       FrequencySpawn: 3
       timeSpawn: 5
+  - enemyList:
+    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
+      numEnemy: 2
+      FrequencySpawn: 13
+      timeSpawn: 5
+    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
+      numEnemy: 2
+      FrequencySpawn: 8
+      timeSpawn: 8
 --- !u!4 &1480403402
 Transform:
   m_ObjectHideFlags: 0

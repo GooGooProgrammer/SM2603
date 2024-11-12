@@ -10,8 +10,7 @@ public class Enemy : MonoBehaviour, IDamageble
     [SerializeField]
     int hp;
 
-    [SerializeField]
-    float speed;
+    public float speed;
 
     [SerializeField]
     private int power;

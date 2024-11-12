@@ -12,13 +12,4 @@ public class LaserBeam : Spell
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.right = -(mousePos - (Vector2)Player.Instance.transform.position).normalized;
     }
-
-    protected override void Effect()
-    {
-        foreach (Transform enemy in EnemyList)
-        {
-            if (enemy)
-                enemy.GetComponent<IDamageble>().Damage(damage);
-        }
-    }
 }

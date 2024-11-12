@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class BlackHole : Spell
 {
-    protected override void Effect()
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        IDamageble iDamageable = col.gameObject.GetComponent<IDamageble>();
+        if (iDamageable == null)
+            return;
+        EnemyList.Add(col.transform);
+        col.gameObject.GetComponent<Enemy>().speed =
+            col.gameObject.GetComponent<Enemy>().speed / 10;
+    }
+
+    protected override void EndCasting()
     {
         foreach (Transform enemy in EnemyList)
         {
             if (enemy)
             {
-                enemy.position = transform.position;       
+                enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().speed * 10;
             }
         }
     }
