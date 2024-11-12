@@ -66,18 +66,31 @@ public class EnemySetControl : MonoBehaviour
                 g.GetComponent<EnemySet>().count.text = count.ToString();
             }
         }
-        if (CheckEnemyAllDead()) { }
+        CheckEnemyAllDead();
     }
 
-    bool CheckEnemyAllDead()
+    void CheckEnemyAllDead()
     {
         foreach (GameObject g in EnemeySetList)
         {
             if (g.GetComponent<EnemySet>().count.text != "0")
             {
-                return false;
+                return;
             }
         }
-        return true;
+        PrepareStageUI.Instance.StartBtn.SetActive(true);
+        EnemyControl.Instance.CancelInvoke();
+        EnemyControl.Instance.CurrentWavePlus1();
+        CleanEnemySetList();
+        SpawnEnemySet();
+    }
+
+    void CleanEnemySetList()
+    {
+        foreach (GameObject e in EnemeySetList)
+        {
+            Destroy(e);
+        }
+        EnemeySetList = new List<GameObject>();
     }
 }

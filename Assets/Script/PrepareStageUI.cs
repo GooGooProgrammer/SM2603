@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PrepareStageUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static PrepareStageUI Instance;
+    public GameObject StartBtn;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        Instance = this;
     }
 }

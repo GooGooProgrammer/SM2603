@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour, IDamageble
 
     public void Damage(int damage)
     {
+        if (hp <= 0)
+            return;
         animator.SetTrigger("OnHit");
         hp = hp - damage;
         CheckDead();

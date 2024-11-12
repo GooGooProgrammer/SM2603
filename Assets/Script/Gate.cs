@@ -7,19 +7,16 @@ public class Gate : MonoBehaviour
 {
     [SerializeField]
     int gateHp;
+
     [SerializeField]
-    Transform gateHealth; 
+    Transform gateHealth;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -27,8 +24,14 @@ public class Gate : MonoBehaviour
             int damage = collision.transform.GetComponent<Enemy>().GetPower();
             gateHp = gateHp - damage;
             gateHealth.localScale -= new Vector3((float)damage / 2, 0, 0);
-            EnemySetControl.Instance.EnemyNumberDecreaseOne(collision.gameObject.GetComponent<Enemy>().GetId());
+            EnemySetControl.Instance.EnemyNumberDecreaseOne(
+                collision.gameObject.GetComponent<Enemy>().GetId()
+            );
             Destroy(collision.gameObject);
+        }
+        if (gateHp <= 0)
+        {
+            Time.timeScale = 0;
         }
     }
 }

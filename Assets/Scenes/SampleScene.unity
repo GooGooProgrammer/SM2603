@@ -203,6 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149409681}
+  - component: {fileID: 149409682}
   m_Layer: 5
   m_Name: PrepareStageUI
   m_TagString: Untagged
@@ -230,6 +231,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &149409682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149409680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87acf10d3f31484f8320ca4a55f8653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartBtn: {fileID: 214506151}
 --- !u!1 &159660140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2064,19 @@ MonoBehaviour:
       numEnemy: 1
       FrequencySpawn: 10
       timeSpawn: 2
+  - enemyList:
+    - enemy: {fileID: 8288393009580563416, guid: 3b0712e150de99043b04d14ddc68d13e, type: 3}
+      numEnemy: 1
+      FrequencySpawn: 6
+      timeSpawn: 6
+    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
+      numEnemy: 2
+      FrequencySpawn: 4
+      timeSpawn: 10
+    - enemy: {fileID: 536317047824890068, guid: a5223124bec1fd04e992392e2e6ac267, type: 3}
+      numEnemy: 1
+      FrequencySpawn: 3
+      timeSpawn: 5
 --- !u!4 &1480403402
 Transform:
   m_ObjectHideFlags: 0

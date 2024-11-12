@@ -26,7 +26,6 @@ public class EnemyControl : MonoBehaviour
     class WaveListObject
     {
         public List<EnemyListObject> enemyList;
-
     }
 
     [SerializeField]
@@ -37,7 +36,9 @@ public class EnemyControl : MonoBehaviour
     public void StartWave()
     {
         InvokeRepeating("CheckSpawnEnemy", 0f, 1f);
+        currentTime = 1;
     }
+
     void CheckSpawnEnemy()
     {
         foreach (EnemyListObject e in waveList[currentWave].enemyList)
@@ -58,17 +59,24 @@ public class EnemyControl : MonoBehaviour
         //     waveList[currentWave].enemyList.Remove(e);
         // }
     }
+
     public (GameObject, int) GetEnemySet(int i)
     {
         return (
             waveList[currentWave].enemyList[i].enemy,
-            waveList[currentWave].enemyList[i].numEnemy * waveList[currentWave].enemyList[i].timeSpawn
+            waveList[currentWave].enemyList[i].numEnemy
+                * waveList[currentWave].enemyList[i].timeSpawn
         );
     }
 
     public int GetEnemyListLength()
     {
         return waveList[currentWave].enemyList.Count;
+    }
+
+    public void CurrentWavePlus1()
+    {
+        currentWave++;
     }
 
     IEnumerator SpawnEnemy(EnemyListObject e)
@@ -82,7 +90,6 @@ public class EnemyControl : MonoBehaviour
                 Quaternion.identity
             );
             yield return new WaitForSeconds(1.5f);
-            
         }
         ClearEnemy(e);
     }
