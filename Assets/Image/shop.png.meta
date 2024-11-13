@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 15b073f32eb21064caaa00e48689ebf6
+guid: cf17feac69b17e94b8168d7cebd3ed5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1264910348094191583
-    second: Ability_1_alt_0
+      213: 6840857970483876212
+    second: shop_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ability_1_alt_0
+      name: shop_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 103
+        y: 116
+        width: 154
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd7bed2824ddd8110800000000000000
-      internalID: 1264910348094191583
+      spriteID: 4715799641c9fee50800000000000000
+      internalID: 6840857970483876212
       vertices: []
       indices: 
       edges: []
@@ -183,7 +183,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ability_1_alt_0: 1264910348094191583
+      shop_0: 6840857970483876212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

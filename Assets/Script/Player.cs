@@ -11,7 +11,10 @@ public class Player : MonoBehaviour
 
     Animator animator;
     public static Player Instance;
+    [SerializeField]
+    float jumpingHeight;
 
+    bool jumpAvailable = true;
     void Awake()
     {
         Instance = this;
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
     }
 
     void Move()
@@ -51,6 +55,15 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("walking", false);
         }
-        Camera.main.transform.GetComponent<CameraControl>().FollowThePlayer(transform.position.x);
+    }
+    void Jump()
+    {
+        if (!jumpAvailable) return;
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpingHeight;
+            jumpAvailable = false;
+        }
     }
 }

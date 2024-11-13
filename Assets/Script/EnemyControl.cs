@@ -86,7 +86,7 @@ public class EnemyControl : MonoBehaviour
             float randomY = UnityEngine.Random.Range(0, Camera.main.orthographicSize / 2);
             Instantiate(
                 e.enemy,
-                transform.position + new Vector3(0, randomY, 0),
+                transform.position + new Vector3(0,  randomY, 0),
                 Quaternion.identity
             );
             yield return new WaitForSeconds(1.5f);

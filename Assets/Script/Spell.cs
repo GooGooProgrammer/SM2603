@@ -54,6 +54,7 @@ public abstract class Spell : MonoBehaviour
         if (onCoolDown)
             return;
         spriteRenderer.enabled = true;
+
     }
 
     public void CancelCast()
