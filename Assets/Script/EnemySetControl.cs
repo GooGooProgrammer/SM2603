@@ -78,9 +78,10 @@ public class EnemySetControl : MonoBehaviour
                 return;
             }
         }
-        PrepareStageUI.Instance.StartBtn.SetActive(true);
+        PrepareStageUI.Instance.gameObject.SetActive(true);
         EnemyControl.Instance.CancelInvoke();
         EnemyControl.Instance.CurrentWavePlus1();
+        GameManager.Instance.state = GameState.Prepare;
         CleanEnemySetList();
         SpawnEnemySet();
     }

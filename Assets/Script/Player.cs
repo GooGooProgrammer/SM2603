@@ -66,4 +66,16 @@ public class Player : MonoBehaviour
             jumpAvailable = false;
         }
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Border"))
+        {
+            Debug.Log("11");
+            if (other.contacts[0].normal == Vector2.up)
+            {
+                Debug.Log("22");
+                jumpAvailable = true;
+            }
+        }
+    }
 }

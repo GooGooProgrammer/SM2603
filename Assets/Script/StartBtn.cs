@@ -7,12 +7,10 @@ using UnityEngine.UI;
 
 public class StartBtn : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField]
-    Image image;
-
     public void OnPointerDown(PointerEventData eventData)
     {
+        GameManager.Instance.state = GameState.Fight;
         EnemyControl.Instance.StartWave();
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 }

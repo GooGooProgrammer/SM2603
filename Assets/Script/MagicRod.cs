@@ -22,25 +22,27 @@ public class MagicRod : MonoBehaviour
     private bool onCoolDown = false;
 
     // Start is called before the first frame update
-    void Start() { }
+    void Start() 
+    {
+        InvokeRepeating("Fire", 0f, attackSpeed);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Fire();
         HandleWeaponRotation();
     }
 
     void Fire()
     {
-        if (Input.GetMouseButtonDown(0) && onCoolDown == false)
+        if (GameManager.Instance.state== GameState.Fight)
         {
             GameObject Bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
             Bullet.GetComponent<Bullet>().speed = bulletSpeed;
             Bullet.GetComponent<Bullet>().bulletBlocker = bulletBlocker;
             Bullet.GetComponent<Bullet>().damage = damage;
-            onCoolDown = true;
-            StartCoroutine(CoolDownCalculate());
+            //onCoolDown = true;
+            //StartCoroutine(CoolDownCalculate());
         }
     }
 
