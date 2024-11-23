@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 97c3081bbd9766d4f9c423d8f7197bfa
+guid: 67ee498382c60b446a0f0d729c66d6e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2468866099839556514
-    second: laserBeam_0
+      213: 7759238941937503945
+    second: ui_skillframe_0
   - first:
-      213: -3421487525403242030
-    second: laserBeam_1
+      213: -6493905733881890607
+    second: ui_skillframe_1
   - first:
-      213: 3067404715157258119
-    second: laserBeam_2
+      213: -6860609239189103175
+    second: ui_skillframe_2
   - first:
-      213: -4527811363238820250
-    second: laserBeam_3
-  - first:
-      213: -1274000225554441606
-    second: laserBeam_4
+      213: 1633836274582818006
+    second: ui_skillframe_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,106 +109,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: laserBeam_0
+      name: ui_skillframe_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 8
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2abd0fe13ac234220800000000000000
-      internalID: 2468866099839556514
+      spriteID: 9ce009d15ba5eab60800000000000000
+      internalID: 7759238941937503945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laserBeam_1
+      name: ui_skillframe_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 42
         y: 0
-        width: 11
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d1d8e4393f6480d0800000000000000
-      internalID: -3421487525403242030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: laserBeam_2
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 0
-        width: 11
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78f7e4d265c919a20800000000000000
-      internalID: 3067404715157258119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: laserBeam_3
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 0
-        width: 7
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6664c24fd8bf921c0800000000000000
-      internalID: -4527811363238820250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: laserBeam_4
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 11
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7a5f087b87d15ee0800000000000000
-      internalID: -1274000225554441606
+      spriteID: 1d8f817242301e5a0800000000000000
+      internalID: -6493905733881890607
       vertices: []
       indices: 
       edges: []
@@ -219,7 +153,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 997ec7a4b61b1454eb0dc8ffc9deaeab
+    spriteID: 446545da04baa914d8b2f4edec99eb22
     internalID: 0
     vertices: []
     indices: 
@@ -227,11 +161,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      laserBeam_0: 2468866099839556514
-      laserBeam_1: -3421487525403242030
-      laserBeam_2: 3067404715157258119
-      laserBeam_3: -4527811363238820250
-      laserBeam_4: -1274000225554441606
+      ui_skillframe_0: 7759238941937503945
+      ui_skillframe_1: -6493905733881890607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

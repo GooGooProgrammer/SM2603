@@ -16,7 +16,7 @@ public class UpgradeToggle : MonoBehaviour
         switch (boolean)
         {
             case true:
-                if(!PrepareStageUI.Instance.ReduceOneCrystal())
+                if(PrepareStageUI.Instance.ReduceOneCrystal() == false)
                 {
                     toggle.isOn = false;
                 }

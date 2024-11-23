@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     [SerializeField]
     float jumpingHeight;
+    public Transform Weapon;
 
     bool jumpAvailable = true;
     void Awake()
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
             );
             GetComponent<SpriteRenderer>().flipX = true;
             animator.SetBool("walking", true);
+            //Weapon.localPosition = new Vector3(1,2.5f,0);
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
             );
             GetComponent<SpriteRenderer>().flipX = false;
             animator.SetBool("walking", true);
+            //Weapon.localPosition = new Vector3(-1,2.5f,0);
         }
         else
         {

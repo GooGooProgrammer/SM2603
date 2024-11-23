@@ -9,11 +9,15 @@ public class Bullet : MonoBehaviour
     public int damage { private get; set; }
     public LayerMask bulletBlocker { private get; set; }
     Rigidbody2D rb;
-
+    Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        animator.SetBool("InAir",true);
         SetStraightVelocity();
+        transform.eulerAngles += new Vector3(0,0,-90);
+
     }
 
     // Update is called once per frame
@@ -35,7 +39,13 @@ public class Bullet : MonoBehaviour
 
         if ((bulletBlocker.value & (1 << collision.gameObject.layer)) > 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("InAir",false);
+            rb.velocity= Vector2.zero;
+            GetComponent<Collider2D>().enabled = false;
         }
+    }
+    private void DestroyItself()
+    {
+        Destroy(gameObject);
     }
 }

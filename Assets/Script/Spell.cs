@@ -20,6 +20,7 @@ public abstract class Spell : MonoBehaviour
     [SerializeField]
     protected SpellCoolDown spellCoolDown;
 
+    protected Animator animator;
     protected bool onCoolDown = false;
     protected Collider2D col;
     protected SpriteRenderer spriteRenderer;
@@ -30,6 +31,7 @@ public abstract class Spell : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -54,7 +56,7 @@ public abstract class Spell : MonoBehaviour
         if (onCoolDown)
             return;
         spriteRenderer.enabled = true;
-
+        spriteRenderer.material.color = Color.grey;
     }
 
     public void CancelCast()
@@ -87,7 +89,10 @@ public abstract class Spell : MonoBehaviour
     protected IEnumerator Casting()
     {
         spriteRenderer.enabled = true;
+        spriteRenderer.material.color = Color.white;
+
         col.enabled = true;
+        animator.SetTrigger("Cast");
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < checkFrequency; i++)
         {

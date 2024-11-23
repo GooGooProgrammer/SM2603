@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class Gate : MonoBehaviour
 
     [SerializeField]
     Transform gateHealth;
+    [SerializeField]
+    TextMeshProUGUI gateHealthText;
 
     // Start is called before the first frame update
     void Start() { }
@@ -24,6 +27,7 @@ public class Gate : MonoBehaviour
             int damage = collision.transform.GetComponent<Enemy>().GetPower();
             gateHp = gateHp - damage;
             gateHealth.localScale -= new Vector3((float)damage / 2, 0, 0);
+            gateHealthText.text = gateHp + " / 6";
             EnemySetControl.Instance.EnemyNumberDecreaseOne(
                 collision.gameObject.GetComponent<Enemy>().GetId()
             );

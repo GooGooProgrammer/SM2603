@@ -8,8 +8,10 @@ public class LaserBeam : Spell
     {
         if (col.enabled)
             return;
-        transform.position = Player.Instance.transform.position;
+        transform.position = Player.Instance.Weapon.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.right = -(mousePos - (Vector2)Player.Instance.transform.position).normalized;
+        transform.right = -(mousePos - (Vector2)Player.Instance.Weapon.position).normalized;
+        Vector3 orignalRotation = transform.eulerAngles;
+        transform.eulerAngles = orignalRotation + new Vector3(0,0,90);
     }
 }
