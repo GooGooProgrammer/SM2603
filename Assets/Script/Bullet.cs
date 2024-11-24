@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed { private get; set; }
     public int damage { private get; set; }
     public LayerMask bulletBlocker { private get; set; }
+    public bool penetration { private get; set; } = false;
     Rigidbody2D rb;
     Animator animator;
     void Start()
@@ -30,6 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         IDamageble iDamageable = collision.gameObject.GetComponent<IDamageble>();
 
         if (iDamageable != null)
@@ -39,9 +41,16 @@ public class Bullet : MonoBehaviour
 
         if ((bulletBlocker.value & (1 << collision.gameObject.layer)) > 0)
         {
-            animator.SetBool("InAir",false);
-            rb.velocity= Vector2.zero;
-            GetComponent<Collider2D>().enabled = false;
+            if(penetration == true && iDamageable!= null)
+            {
+                penetration = false;
+            }
+            else
+            {
+                animator.SetBool("InAir",false);
+                rb.velocity= Vector2.zero;
+                GetComponent<Collider2D>().enabled = false;
+            }
         }
     }
     private void DestroyItself()

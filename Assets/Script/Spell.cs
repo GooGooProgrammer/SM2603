@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
-public abstract class Spell : MonoBehaviour
+public abstract class Spell : MonoBehaviour, IUpgradeAble
 {
     [SerializeField]
     protected float spellCD;
@@ -19,6 +20,9 @@ public abstract class Spell : MonoBehaviour
 
     [SerializeField]
     protected SpellCoolDown spellCoolDown;
+
+    [SerializeField]
+    protected List<Toggle> toggles;
 
     protected Animator animator;
     protected bool onCoolDown = false;
@@ -86,7 +90,7 @@ public abstract class Spell : MonoBehaviour
         onCoolDown = false;
     }
 
-    protected IEnumerator Casting()
+    protected virtual IEnumerator Casting()
     {
         spriteRenderer.enabled = true;
         spriteRenderer.material.color = Color.white;
@@ -123,5 +127,17 @@ public abstract class Spell : MonoBehaviour
         if (iDamageable == null)
             return;
         EnemyList.Add(col.transform);
+    }
+
+    public void CheckUpgrade()
+    {
+        for (int i = 0; i < toggles.Count; i++)
+        {
+            Upgrade(i , toggles[i].isOn);        
+        }
+    }
+    protected virtual void Upgrade(int i , bool isOn)
+    {
+
     }
 }

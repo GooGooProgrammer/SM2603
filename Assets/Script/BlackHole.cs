@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlackHole : Spell
 {
@@ -23,6 +24,22 @@ public class BlackHole : Spell
             {
                 enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().speed * 10;
             }
+        }
+    }
+        protected override void Upgrade(int i , bool isOn)
+    {
+        switch ((i,isOn))
+        {
+            case (0,true):
+            transform.localScale = Vector3.one * 20;
+            checkFrequency = 4;
+            duration = 4;
+                break;
+            case (0,false):
+            transform.localScale = Vector3.one * 10;
+            checkFrequency=3;
+            duration = 3;
+                break;              
         }
     }
 }

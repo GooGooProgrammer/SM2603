@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PrepareStageUI : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class PrepareStageUI : MonoBehaviour
     //crystal
     [SerializeField]
     private TextMeshProUGUI crystal;
-    private int crystalCount = 1;
+    [SerializeField]
+    private int crystalCount;
     public void AddCrystal(int num)
     {
         crystalCount = crystalCount + num;
@@ -28,7 +30,6 @@ public class PrepareStageUI : MonoBehaviour
         //return false when crystal not enough
     }
     //end of crystal
-
 
     void Awake()
     {
