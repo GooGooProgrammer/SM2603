@@ -150,8 +150,9 @@ MonoBehaviour:
   spellCD: 5
   checkFrequency: 1
   duration: 0.4166667
-  damage: 4
+  damage: 5
   spellCoolDown: {fileID: 0}
+  toggles: []
 --- !u!95 &5665600618955701168
 Animator:
   serializedVersion: 7

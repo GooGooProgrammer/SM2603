@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crystal: {fileID: 167278670}
-  crystalCount: 4
+  crystalCount: 0
 --- !u!1 &159660140
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1971,7 +1971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &933776253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3048,6 +3048,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 3 Fireballs once
       objectReference: {fileID: 0}
+    - target: {fileID: 680836595608567756, guid: d3a1f35215037784095444f2496c905e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2670688449290378161, guid: d3a1f35215037784095444f2496c905e, type: 3}
       propertyPath: m_Name
       value: OnHit -CD
@@ -3367,11 +3371,11 @@ MonoBehaviour:
     - enemy: {fileID: 8288393009580563416, guid: 3b0712e150de99043b04d14ddc68d13e, type: 3}
       numEnemy: 1
       FrequencySpawn: 6
-      timeSpawn: 6
+      timeSpawn: 5
     - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
       numEnemy: 2
       FrequencySpawn: 4
-      timeSpawn: 10
+      timeSpawn: 8
     - enemy: {fileID: 536317047824890068, guid: a5223124bec1fd04e992392e2e6ac267, type: 3}
       numEnemy: 1
       FrequencySpawn: 10
@@ -3379,25 +3383,29 @@ MonoBehaviour:
   - enemyList:
     - enemy: {fileID: 8288393009580563416, guid: 3b0712e150de99043b04d14ddc68d13e, type: 3}
       numEnemy: 1
-      FrequencySpawn: 6
-      timeSpawn: 6
+      FrequencySpawn: 7
+      timeSpawn: 4
     - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
       numEnemy: 2
-      FrequencySpawn: 4
-      timeSpawn: 10
+      FrequencySpawn: 5
+      timeSpawn: 6
     - enemy: {fileID: 536317047824890068, guid: a5223124bec1fd04e992392e2e6ac267, type: 3}
       numEnemy: 1
       FrequencySpawn: 3
       timeSpawn: 5
   - enemyList:
-    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
-      numEnemy: 2
-      FrequencySpawn: 13
-      timeSpawn: 5
-    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
+    - enemy: {fileID: 8288393009580563416, guid: 3b0712e150de99043b04d14ddc68d13e, type: 3}
       numEnemy: 2
       FrequencySpawn: 8
+      timeSpawn: 6
+    - enemy: {fileID: 4915987482503526336, guid: f1eb0cd63155fbb46bb6c6ec6af6f7d0, type: 3}
+      numEnemy: 3
+      FrequencySpawn: 6
       timeSpawn: 8
+    - enemy: {fileID: 536317047824890068, guid: a5223124bec1fd04e992392e2e6ac267, type: 3}
+      numEnemy: 1
+      FrequencySpawn: 4
+      timeSpawn: 11
 --- !u!4 &1480403402
 Transform:
   m_ObjectHideFlags: 0
@@ -3900,7 +3908,7 @@ Transform:
   m_GameObject: {fileID: 1756516544}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 2.5, z: 0}
+  m_LocalPosition: {x: 1, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

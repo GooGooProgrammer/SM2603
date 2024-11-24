@@ -79,6 +79,7 @@ public class EnemySetControl : MonoBehaviour
             }
         }
         PrepareStageUI.Instance.gameObject.SetActive(true);
+        PrepareStageUI.Instance.AddCrystal(1);
         EnemyControl.Instance.CancelInvoke();
         EnemyControl.Instance.CurrentWavePlus1();
         GameManager.Instance.state = GameState.Prepare;

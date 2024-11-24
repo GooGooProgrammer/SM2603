@@ -104,9 +104,11 @@ public class MagicRod : MonoBehaviour, IUpgradeAble
             penetration = false;
                 break;
             case (1,true):
+            damage = 1;
             crossFire = true;
                 break;
             case (1,false):
+            damage = 2;
             crossFire = false;
                 break;                
         }
