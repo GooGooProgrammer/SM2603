@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour, IDamageble
 
     [SerializeField]
     int hp;
-
+    [SerializeField]    
+    SpriteRenderer whiteSilhouette;
     public float speed;
 
     [SerializeField]
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour, IDamageble
     void Update()
     {
         transform.position += new Vector3(speed * Time.deltaTime, 0);
+        GetComponent<SpriteMask>().sprite = GetComponent<SpriteRenderer>().sprite;
         GetComponent<SpriteRenderer>().material = GetComponent<SpriteRenderer>().material;
     }
 
