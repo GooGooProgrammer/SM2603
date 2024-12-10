@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 2a44ec0dc7afe194f9e5248eddb45150
+guid: 65eacd1907fedb74bbeeb7be76683b20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8810112367374174498
-    second: ui_crystal_0
+      213: -7769715157524945711
+    second: ui_startwave_0
+  - first:
+      213: 7028494555647183397
+    second: ui_startwave_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_crystal_0
+      name: ui_startwave_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 17
-        height: 16
+        width: 39
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +117,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed6f267da713cb580800000000000000
-      internalID: -8810112367374174498
+      spriteID: 1d4e1cdda3d6c2490800000000000000
+      internalID: -7769715157524945711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_startwave_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 41
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52a0e1f4f8a3a8160800000000000000
+      internalID: 7028494555647183397
       vertices: []
       indices: 
       edges: []
@@ -131,7 +155,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui_crystal_0: -8810112367374174498
+      ui_startwave_0: -7769715157524945711
+      ui_startwave_1: 7028494555647183397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
