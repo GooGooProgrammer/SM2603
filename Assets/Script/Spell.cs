@@ -8,6 +8,9 @@ public abstract class Spell : MonoBehaviour, IUpgradeAble
 {
     [SerializeField]
     protected float spellCD;
+    [SerializeField]
+    protected AudioClip clip;
+
 
     [SerializeField]
     protected int checkFrequency;
@@ -51,6 +54,7 @@ public abstract class Spell : MonoBehaviour, IUpgradeAble
             return;
         //CastingSpell = Instantiate(TheSpell, SpellArea.transform.position, Quaternion.identity);
         onCoolDown = true;
+        GetComponent<AudioSource>().PlayOneShot(clip);
         StartCoroutine(CoolDownCalculate());
         StartCoroutine(Casting());
     }

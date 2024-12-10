@@ -35,7 +35,10 @@ public class Gate : MonoBehaviour
         }
         if (gateHp <= 0)
         {
-            Time.timeScale = 0;
+            EnemyControl.Instance.ResetWave();
+            gateHp = 6;
+            gateHealth.localScale = new Vector3(3,0.26f,0.5f);
+            gateHealthText.text = gateHp + " / 6";            
         }
     }
 }

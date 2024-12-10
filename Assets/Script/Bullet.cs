@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
+    public AudioClip clip{ private get; set; }
     public float speed { private get; set; }
     public int damage { private get; set; }
     public LayerMask bulletBlocker { private get; set; }
@@ -21,8 +22,6 @@ public class Bullet : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update() { }
 
     void SetStraightVelocity()
     {
@@ -48,6 +47,7 @@ public class Bullet : MonoBehaviour
             else
             {
                 animator.SetBool("InAir",false);
+                GetComponent<AudioSource>().PlayOneShot(clip);
                 rb.velocity= Vector2.zero;
                 GetComponent<Collider2D>().enabled = false;
             }

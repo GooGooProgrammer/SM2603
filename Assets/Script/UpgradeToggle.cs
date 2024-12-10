@@ -26,7 +26,7 @@ public class UpgradeToggle : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 }
                 break;
             case false:
-                PrepareStageUI.Instance.AddCrystal(1);
+                PrepareStageUI.Instance.AddCrystal();
                 break;
         }
     }

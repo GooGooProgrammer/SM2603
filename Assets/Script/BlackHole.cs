@@ -25,6 +25,7 @@ public class BlackHole : Spell
                 enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().speed * 10;
             }
         }
+        GetComponent<AudioSource>().Stop();
     }
         protected override void Upgrade(int i , bool isOn)
     {

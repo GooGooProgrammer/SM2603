@@ -9,7 +9,7 @@ public class StartBtn : MonoBehaviour, IPointerDownHandler
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameManager.Instance.state = GameState.Fight;
+        GameManager.Instance.SetGameState(GameState.Fight);;
         EnemyControl.Instance.StartWave();
         transform.parent.gameObject.SetActive(false);
     }

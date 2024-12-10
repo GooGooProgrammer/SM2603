@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
 {
     public static EnemyControl Instance;
 
+
     void Awake()
     {
         Instance = this;
@@ -21,7 +22,6 @@ public class EnemyControl : MonoBehaviour
         public int FrequencySpawn;
         public int timeSpawn;
     }
-
     [Serializable]
     class WaveListObject
     {
@@ -30,6 +30,8 @@ public class EnemyControl : MonoBehaviour
 
     [SerializeField]
     List<WaveListObject> waveList;
+
+    List<int> currentTimeSpawn;
     int currentTime = 1;
     int currentWave = 0;
 
@@ -37,6 +39,11 @@ public class EnemyControl : MonoBehaviour
     {
         InvokeRepeating("CheckSpawnEnemy", 0f, 1f);
         currentTime = 1;
+        currentTimeSpawn = new List<int>();
+        foreach(EnemyListObject e in waveList[currentWave].enemyList)
+        {
+            currentTimeSpawn.Add(e.timeSpawn);
+        }
     }
 
     void CheckSpawnEnemy()
@@ -51,13 +58,12 @@ public class EnemyControl : MonoBehaviour
         currentTime++;
     }
 
-    void ClearEnemy(EnemyListObject e)
+    void ClearAllEnemy()
     {
-        e.timeSpawn--;
-        // if (e.timeSpawn <= 0)
-        // {
-        //     waveList[currentWave].enemyList.Remove(e);
-        // }
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     public (GameObject, int) GetEnemySet(int i)
@@ -77,8 +83,25 @@ public class EnemyControl : MonoBehaviour
     public void CurrentWavePlus1()
     {
         currentWave++;
+        currentTimeSpawn = new List<int>();
+        foreach(EnemyListObject e in waveList[currentWave].enemyList)
+        {
+            currentTimeSpawn.Add(e.timeSpawn);
+        }
     }
-
+    public void ResetWave()
+    {
+        GameManager.Instance.SetGameState(GameState.Prepare);
+        for (int i = 0;i <  waveList[currentWave].enemyList.Count; i++)
+        {
+            waveList[currentWave].enemyList[i].timeSpawn = currentTimeSpawn[i];
+        }
+        EnemySetControl.Instance.CleanEnemySetList();
+        EnemySetControl.Instance.SpawnEnemySet();
+        CancelInvoke();
+        ClearAllEnemy();
+        
+    }
     IEnumerator SpawnEnemy(EnemyListObject e)
     {
         for (int i = 0; i < e.numEnemy; i++)
@@ -87,10 +110,11 @@ public class EnemyControl : MonoBehaviour
             Instantiate(
                 e.enemy,
                 transform.position + new Vector3(0,  randomY, 0),
-                Quaternion.identity
+                Quaternion.identity,
+                transform
             );
             yield return new WaitForSeconds(1.5f);
         }
-        ClearEnemy(e);
+        e.timeSpawn--;
     }
 }

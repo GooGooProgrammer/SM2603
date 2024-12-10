@@ -10,29 +10,41 @@ public class PrepareStageUI : MonoBehaviour
 
     //crystal
     [SerializeField]
-    private TextMeshProUGUI crystal;
+    private GameObject crystalPrefab;
+    [SerializeField]
+    private Transform crystal_List;
+
     [SerializeField]
     private int crystalCount;
-    public void AddCrystal(int num)
+
+    public void AddCrystal()
     {
-        crystalCount = crystalCount + num;
-        crystal.text = crystalCount.ToString();
+        crystalCount++;
+        if(crystalCount<=0) return;
+        GameObject crystal = Instantiate(crystalPrefab,crystal_List);
+        crystal.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 50 * crystal_List.childCount;
     }
+
     public bool ReduceOneCrystal()
     {
         crystalCount--;
-        if (crystalCount>=0)
+        if (crystalCount >= 0)
         {
-            crystal.text = crystalCount.ToString();
+            Destroy(crystal_List.GetChild(crystal_List.childCount-1).gameObject);
             return true;
         }
         return false;
         //return false when crystal not enough
     }
+
     //end of crystal
 
     void Awake()
     {
         Instance = this;
+    }
+    void Start()
+    {
+        AddCrystal();
     }
 }

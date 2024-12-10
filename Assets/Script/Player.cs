@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
 
     Animator animator;
     public static Player Instance;
+
     [SerializeField]
     float jumpingHeight;
     public Transform Weapon;
 
     bool jumpAvailable = true;
+
     void Awake()
     {
         Instance = this;

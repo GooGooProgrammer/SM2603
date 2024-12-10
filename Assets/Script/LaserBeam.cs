@@ -34,10 +34,10 @@ public class LaserBeam : Spell
     {
         spriteRenderer.enabled = true;
         spriteRenderer.material.color = Color.white;
-
         col.enabled = true;
 
         animator.SetTrigger("Cast");
+        GetComponent<AudioSource>().PlayOneShot(clip);
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < checkFrequency; i++)
         {
@@ -50,6 +50,7 @@ public class LaserBeam : Spell
         if (castTwice)
         {
             animator.SetTrigger("Cast");
+            GetComponent<AudioSource>().PlayOneShot(clip);
             yield return new WaitForSeconds(0.1f);
             for (int i = 0; i < checkFrequency; i++)
             {

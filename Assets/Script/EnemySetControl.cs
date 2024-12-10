@@ -33,7 +33,7 @@ public class EnemySetControl : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    void SpawnEnemySet()
+    public void SpawnEnemySet()
     {
         for (int i = 0; i < EnemyControl.Instance.GetEnemyListLength(); i++)
         {
@@ -78,16 +78,14 @@ public class EnemySetControl : MonoBehaviour
                 return;
             }
         }
-        PrepareStageUI.Instance.gameObject.SetActive(true);
-        PrepareStageUI.Instance.AddCrystal(1);
+        PrepareStageUI.Instance.AddCrystal();
         EnemyControl.Instance.CancelInvoke();
         EnemyControl.Instance.CurrentWavePlus1();
-        GameManager.Instance.state = GameState.Prepare;
+        GameManager.Instance.SetGameState(GameState.Prepare);
         CleanEnemySetList();
         SpawnEnemySet();
     }
-
-    void CleanEnemySetList()
+    public void CleanEnemySetList()
     {
         foreach (GameObject e in EnemeySetList)
         {
