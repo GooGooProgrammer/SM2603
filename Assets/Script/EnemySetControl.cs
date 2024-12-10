@@ -22,6 +22,7 @@ public class EnemySetControl : MonoBehaviour
     [SerializeField]
     float offsetY;
 
+
     List<GameObject> EnemeySetList = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -77,6 +78,11 @@ public class EnemySetControl : MonoBehaviour
             {
                 return;
             }
+        }
+        if(EnemyControl.Instance.currentWave == 2)
+        {
+            GameManager.Instance.WinTheGame();
+            return;
         }
         PrepareStageUI.Instance.AddCrystal();
         EnemyControl.Instance.CancelInvoke();

@@ -33,7 +33,7 @@ public class EnemyControl : MonoBehaviour
 
     List<int> currentTimeSpawn;
     int currentTime = 1;
-    int currentWave = 0;
+    public int currentWave  {private set;get;} = 0;
 
     public void StartWave()
     {
@@ -58,7 +58,7 @@ public class EnemyControl : MonoBehaviour
         currentTime++;
     }
 
-    void ClearAllEnemy()
+    public void ClearAllEnemy()
     {
         foreach(Transform child in transform)
         {
@@ -82,6 +82,7 @@ public class EnemyControl : MonoBehaviour
 
     public void CurrentWavePlus1()
     {
+
         currentWave++;
         currentTimeSpawn = new List<int>();
         foreach(EnemyListObject e in waveList[currentWave].enemyList)
@@ -91,21 +92,19 @@ public class EnemyControl : MonoBehaviour
     }
     public void ResetWave()
     {
-        GameManager.Instance.SetGameState(GameState.Prepare);
         for (int i = 0;i <  waveList[currentWave].enemyList.Count; i++)
         {
             waveList[currentWave].enemyList[i].timeSpawn = currentTimeSpawn[i];
         }
         EnemySetControl.Instance.CleanEnemySetList();
         EnemySetControl.Instance.SpawnEnemySet();
-        CancelInvoke();
-        ClearAllEnemy();
-        
     }
     IEnumerator SpawnEnemy(EnemyListObject e)
     {
+        if(GameManager.Instance.state != GameState.Fight) yield break;
         for (int i = 0; i < e.numEnemy; i++)
         {
+            if(GameManager.Instance.state != GameState.Fight) yield break;
             float randomY = UnityEngine.Random.Range(0, Camera.main.orthographicSize / 2);
             Instantiate(
                 e.enemy,

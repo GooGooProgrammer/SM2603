@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
     Fight,
-    Prepare
+    Prepare,
+    None
 }
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    
+    [SerializeField]
+    private GameObject winningPanel;
     public GameState state;
     [SerializeField]
     private AudioClip fightClip;
+    [SerializeField]
+    private AudioClip winningClip;
+
 
     private bool fightSongPlaying = false;
 
@@ -45,5 +54,17 @@ public class GameManager : MonoBehaviour
             PrepareStageUI.Instance.gameObject.SetActive(true);
             break;
         }
+    }
+    public void WinTheGame()
+    {
+        SetGameState(GameState.None);
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().volume = 0.3f;
+        GetComponent<AudioSource>().PlayOneShot(winningClip);
+        winningPanel.SetActive(true);
+    }
+    public void Retry()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }

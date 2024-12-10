@@ -13,16 +13,14 @@ public class PrepareStageUI : MonoBehaviour
     private GameObject crystalPrefab;
     [SerializeField]
     private Transform crystal_List;
-
-    [SerializeField]
-    private int crystalCount;
+    private int crystalCount = 0;
 
     public void AddCrystal()
     {
         crystalCount++;
         if(crystalCount<=0) return;
         GameObject crystal = Instantiate(crystalPrefab,crystal_List);
-        crystal.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 50 * crystal_List.childCount;
+        crystal.GetComponent<RectTransform>().anchoredPosition += Vector2.down * 50 * crystal_List.childCount;
     }
 
     public bool ReduceOneCrystal()
@@ -45,6 +43,6 @@ public class PrepareStageUI : MonoBehaviour
     }
     void Start()
     {
-        AddCrystal();
+        //AddCrystal();
     }
 }
